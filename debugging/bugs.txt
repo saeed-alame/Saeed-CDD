@@ -1,0 +1,13 @@
+HTML BUGS
+1. The input has id="nameInput" but the JavaScript looked for "name". The ids didn't match 
+2. The div has id="box" but the JavaScript looked for "boxx"
+
+CSS BUGS
+1. "backgroundcolor" is not a real property and its written wrong. CSS needs the hyphen: background-color.Because of this the page was never light blue.
+
+JAVASCRIPT BUGS
+1. getElementById("name") returns null because no element has that id. Changed to "nameInput", otherwise input.value throws an error.
+2. setInterval had no delay time, so it ran as fast as possible. Added 100 ms.
+3. "documentstyel.backgroundColor" is a typo and throws a ReferenceError. Changed to document.body.style.backgroundColor.
+4. getElementById("boxx") has a typo and returns null, so box.style would throw an error. Changed to "box".
+5. "counter == 10;" only compares and throws the result away, so nothing happened. Changed to an if (counter == 10) that calls clearInterval(interval) so the timer actually stops.
