@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Buggy Example</title>
+<style>
+body {
+background-color: lightblue; /* error: property was written "backgroundcolor", there must be - between thhem - it changes bg color of the page */
+}
+#box {
+width: 100px;
+height: 100px;
+background: red;
+}
+</style>
+</head>
+<body>
+<h1>Bug Practice</h1>
+<input id="nameInput" type="text">
+<button onclick="start()">Start</button>
+<div id="box"></div>
+<script>
+counter = 0;
+function start() {
+let input = document.getElementById("nameInput"); // error: id was "name", but the input's id is "nameInput" - it gives input a value
+console.log(input.value);
+interval = setInterval(function () {
+counter++;
+document.body.style.backgroundColor = "yellow"; // error: "documentstyel" is a typed wrong - the function changed any style of the body , here was chosen background color
+let box = document.getElementById("box"); // error: id was "boxx", the div's id is "box", as for the function it also gives a value for the variable
+box.style.left = counter + "px";
+if (counter == 10) clearInterval(interval); // error: "counter == 10;" only compared and did nothing, now it stops the timer , function checks if the counter reached 10 and executes another functions once it does
+}, 100); // error: setInterval had no delay time, added 100 ms - it waits 100 millie seconds between each run
+}
+</script>
+</body>
+</html>
